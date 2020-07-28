@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vacancy extends Model
 {
     protected $fillable = [
-        'name', 'description', 'level', 'category', 'technology', 'salary', 'slug',
+       'name', 'description', 'level', 'category', 'technology', 'salary', 'slug',
     ];
     public function provider()
     {

@@ -11,6 +11,20 @@ class VacanciesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\Vacancy::class, 10)->create()->each(function ($vacancy)
+        {
+            $vacancy->provider()->save(factory(\App\Provider::class)->make());
+        });
     }
 }
+// ->each(function ($user) {
+//            $user->vacancies()->save(factory(\App\Vacancy::class)->make());
+//        });
+
+//
+//$providers = \App\Provider::all();
+//
+//foreach ($providers as $provider)
+//{
+//    $provider->vacancies()->save(factory(\App\Vacancy::class)->make());
+//}

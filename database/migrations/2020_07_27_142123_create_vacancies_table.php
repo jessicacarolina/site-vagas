@@ -15,7 +15,6 @@ class CreateVacanciesTable extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('provider_id');
 
             $table->string('name');
@@ -23,12 +22,11 @@ class CreateVacanciesTable extends Migration
             $table->string('level');
             $table->string('category');
             $table->string('technology');
-            $table->decimal('salary');
+            $table->decimal('salary',10,2);
             $table->string('slug');
 
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('provider_id')->references('id')->on('providers');
 
         });

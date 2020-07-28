@@ -12,7 +12,7 @@ $factory->define(\App\Vacancy::class, function (Faker $faker) {
         'level' => $faker->text,
         'category' => $faker->text,
         'technology' => $faker->text,
-        'salary' => $faker->randomFloat(2, 10),
+        'salary' => $faker->randomFloat(2,1, 10),
         'slug' => $faker->slug,
 
     ];
