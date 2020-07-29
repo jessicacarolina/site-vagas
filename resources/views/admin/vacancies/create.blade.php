@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Criar Vaga</h1>
-    <form action="" class="form-group" method="post" enctype="multipart/form-data">
-        @method("POST")
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
-
-        <div class="form-group">
-            <label for="">Nome Vaga</label>
+    <h1 class="text-center"><strong>Criar Vaga</strong></h1>
+    <form action="" class="form-group" style="margin-left: 20%; margin-right: 20%" method="post">
+    @method("POST")
+         <div class="form-group">
+            <label for="">Título da Vaga</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
 
             @error('name')
@@ -29,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            <label for="">Level</label>
+            <label for="">Nível</label>
             <input type="text" name="level" class="form-control @error('level') is-invalid @enderror" value="{{old('level')}}">
 
             @error('level')
@@ -51,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            <label for="">Technologia</label>
+            <label for="">Tecnologias</label>
             <input type="text" name="technology" class="form-control @error('technology') is-invalid @enderror">
             @error('technology')
             <div class="invalid-feedback">
@@ -72,7 +70,7 @@
 
 
         <div>
-            <button type="submit" class="btn btn-lg btn-success">Criar Vaga</button>
+            <a href="{{'vacancies'}}" class="btn btn-lg btn-success">Criar Vaga</a>
         </div>
     </form>
 @endsection

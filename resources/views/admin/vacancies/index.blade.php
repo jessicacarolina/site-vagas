@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <div class="row">
+        <a href="create" class="btn btn-lg btn-success" style="margin-left: 7%">Criar Vaga</a>
+        <h1 style="margin-left: 20%"><strong>Listagem de vagas</strong></h1>
+    </div>
         <div class="container text-center">
             <div class="row text-center">
                 @foreach($vacancies as $vacancy)

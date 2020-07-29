@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin/vacancies/create');
 });
 
 Auth::routes();
@@ -23,14 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/model/provider', function (){
     $provider = new \App\Provider();
-//    $provider->name = 'Provider teste';
-//    $provider->email = 'email@teste.com';
-//    $provider->password = bcrypt('12345678');
-
-//    //return $provider->save();
     return \App\Provider::all();
-//  CRIAR VAGA PARA UM PRESTADOR
 
+    //  CRIAR VAGA PARA UM PRESTADOR
 //    $provider = \App\Provider::find(10);
 //    $provider->vacancies()->create([
 //        'name' => 'Desenvolvedor PHP',
@@ -79,5 +74,4 @@ Route::get('/model/vacancies', function (){
 });
 
 Route::get('admin/vacancies', 'Admin\\VacancyController@index');
-Route::post('admin/vacancies', 'Admin\\VacancyController@create');
-
+Route::get('admin/create', 'Admin\\VacancyController@create');
