@@ -18,12 +18,20 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <style>
+        html, body {
+            background-color: #E9ECEF;
+
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class=" p-3 mb-2 bg-gradient-dark text-white navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 40px;" >
             <div class="container">
-                <a class="navbar-brand" href="{{route('home')}}">MazzaFC </a>
+                <a class="navbar-brand" href="{{route('home')}}">
+                    <img class="img-fluid" src="{{asset('assets/img/logo.png')}}" style="width: 15%; height: 8%; margin-left: -8%" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

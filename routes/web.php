@@ -75,3 +75,8 @@ Route::get('/model/vacancies', function (){
 
 Route::get('admin/vacancies', 'Admin\\VacancyController@index');
 Route::get('admin/create', 'Admin\\VacancyController@create');
+Route::get('admin/vacancies/{vacancy}/edit', 'Admin\\VacancyController@edit');
+Route::get('admin/vacancies/update/{vacancy}', 'Admin\\VacancyController@update');
+Route::get('admin/vacancies/destroy/{vacancy}', 'Admin\\VacancyController@destroy');
+
+
