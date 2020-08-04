@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/vacancies/create');
+//        return view('auth/login');
+        return view('home');
     }
 }

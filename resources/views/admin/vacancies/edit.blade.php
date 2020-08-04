@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-center" style="color: #2B2D42"><strong>Atualizar Vaga</strong></h1>
-    <form action="{{route('admin.vacancies.update', ['vacancy'=> $vacancy->id])}}" class="form-group" style="margin-left: 20%; margin-right: 20%" method="post">
+    <form action="{{route('vacancies.update', ['vacancy'=> $vacancy->id])}}" class="form-group" style="margin-left: 20%; margin-right: 20%" method="post">
         @method("PUT")
         <div class="form-group">
             <label for="">Título da Vaga</label>

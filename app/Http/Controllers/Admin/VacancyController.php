@@ -24,37 +24,25 @@ class VacancyController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $user = auth()->user();
+        $vacancies = $user->vacancies()->create($data);
 
-        $provider = \App\Provider::find($data['provider']);
-        $provider->vacancies()->create($data);
-        // return view('admin.vacancies.index', compact('vacancies'));
         flash('Vaga criada com sucesso!')->success();
         return redirect()->route('admin.vacancies.index');
-
-//        $data = $request->all();
-//        $vacancies = $request->get('vacancies', null);
-//
-//        $store = user()->store;
-//        $product = $store->products()->create($data);
-//
-//        $product->categories()->sync($vacancies);
-//
-//        flash('Produto criado com sucesso!')->success();
-//        return redirect()->route('admin.vacancies.index');
     }
 
     public function index()
     {
         // $vacancies = \App\Vacancy::all();
-        $vacancies = $this->vacancy->paginate(10);
+        $vacancies = $this->vacancy->paginate(9);
 
         return view('admin.vacancies.index', compact('vacancies'));
     }
 
     public function create()
     {
-        // $providers = \App\Provider::all(['id', 'name']);
-        return view('admin.vacancies.create');
+        $users = \App\User::all(['id', 'name']);
+        return view('admin.vacancies.create', compact('users'));
     }
 
     public function edit($id)

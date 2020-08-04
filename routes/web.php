@@ -13,13 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin/vacancies/create');
-});
+Route::get('/','Admin\\VacancyController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('admin/create', 'Admin\\VacancyController@create');
+    Route::get('admin/vacancies/{vacancy}/edit', 'Admin\\VacancyController@edit');
+    Route::get('admin/vacancies/update/{vacancy}', 'Admin\\VacancyController@update');
+    Route::get('admin/vacancies/destroy/{vacancy}', 'Admin\\VacancyController@destroy');
+});
+
+Route::get('admin/vacancies', 'Admin\\VacancyController@index')->name('admin/vacancies');
 
 Route::get('/model/provider', function (){
     $provider = new \App\Provider();
@@ -51,32 +59,5 @@ Route::get('/model/provider', function (){
 });
 
 Route::get('/model/user', function (){
-   return \App\User::paginate(10);
+    return \App\User::paginate(10);
 });
-
-Route::get('/model/vacancies', function (){
-    $vacancies = \App\Vacancy::all();
-    return $vacancies;
-//    return \App\Vacancy::paginate(5);
-//    $provider = \App\Provider::find(11);
-//    $provider->vacancies()->create([
-//        'id' => null,
-//        'provider_id' =>$provider->id,
-//        'name' => 'Desenvolvedor PHP',
-//        'description' => 'Teste',
-//        'level' => 'Teste',
-//        'category' => 'Teste',
-//        'technology' => 'Teste',
-//        'salary' => 9.20,
-//        'slug' => 'desenvolvedor-php',
-//    ]);
-//    dd($provider);
-});
-
-Route::get('admin/vacancies', 'Admin\\VacancyController@index');
-Route::get('admin/create', 'Admin\\VacancyController@create');
-Route::get('admin/vacancies/{vacancy}/edit', 'Admin\\VacancyController@edit');
-Route::get('admin/vacancies/update/{vacancy}', 'Admin\\VacancyController@update');
-Route::get('admin/vacancies/destroy/{vacancy}', 'Admin\\VacancyController@destroy');
-
-
