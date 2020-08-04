@@ -36,7 +36,7 @@
                                         <button class="btn btn-outline-info" style="border-radius: 8px" >Status</button>
                                     </div>
                                     <div class="col-md-6 text-center"  style="margin-top: 5%">
-                                        <a href="#" style=" border-radius: 23px; background-color: #1F7A8C; color: #fff" class="btn">Ver detalhes</a>
+                                        <a href="{{route('vacancies.details', ['slug' => $vacancy->slug])}}" style=" border-radius: 23px; background-color: #1F7A8C; color: #fff" class="btn">Ver detalhes</a>
                                     </div>
                                 </div>
                             </div>
@@ -46,5 +46,4 @@
                 @endforeach
             </div>
         </div>
-
 @endsection

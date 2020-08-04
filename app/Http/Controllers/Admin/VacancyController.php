@@ -33,10 +33,10 @@ class VacancyController extends Controller
 
     public function index()
     {
-        // $vacancies = \App\Vacancy::all();
-        $vacancies = $this->vacancy->paginate(9);
+        $vacancies = $this->vacancy->paginate();
 
         return view('admin.vacancies.index', compact('vacancies'));
+//        $vacancy = $this->vacancy->limit(6)->orderBy('id', 'DESC')->get();
     }
 
     public function create()

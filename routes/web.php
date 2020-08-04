@@ -18,6 +18,8 @@ Route::get('/','Admin\\VacancyController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/vacancies/{slug}', 'HomeController@details')->name('vacancies.details');
+
 
 Route::group(['middleware' => ['auth']], function () {
 
