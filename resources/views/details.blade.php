@@ -47,10 +47,8 @@
                 <h5 style="margin-top: 15px">{{$vacancy->description}}</h5>
             </div>
         </div>
-        <a href="#" class="btn btn-lg" style="height: 45px; width: 180px; background-color: #1F7A8C; color: #fff; margin-top: 25px"><strong>Candidatar-se</strong></a>
+        <a href="#" class="btn btn-lg" style="height: 45px; width: 180px; background-color: #1F7A8C; color: #fff; margin-top: 25px">
+            <strong>Candidatar-se</strong>
+        </a>
     </div>
-
-
-
-
 @endsection
