@@ -31,35 +31,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('admin/vacancies', 'Admin\\VacancyController@index')->name('admin/vacancies');
 
-Route::get('/model/provider', function (){
-    $provider = new \App\Provider();
-    return \App\Provider::all();
-
-    //  CRIAR VAGA PARA UM PRESTADOR
-//    $provider = \App\Provider::find(10);
-//    $provider->vacancies()->create([
-//        'name' => 'Desenvolvedor PHP',
-//        'description' => 'Teste',
-//        'level' => 'Teste',
-//        'category' => 'Teste',
-//        'technology' => 'Teste',
-//        'salary' => 9.20,
-//        'slug' => 'desenvolvedor-php',
-//    ]);
-//    dd($provider);
-
-//    \App\Vacancy::create([
-//        'name' => 'Desenvolvedor PHP',
-//        'description' => 'Teste',
-//        'level' => 'Teste',
-//        'category' => 'Teste',
-//        'technology' => 'Teste',
-//        'salary' => 9.20,
-//        'slug' => 'desenvolvedor-php',
-//    ]);
-//    return \App\Vacancy::all();
-});
-
 Route::get('/model/user', function (){
     return \App\User::paginate(10);
 });
